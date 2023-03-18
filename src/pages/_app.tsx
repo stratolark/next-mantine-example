@@ -1,9 +1,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { createEmotionCache, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
+import { emotionCache } from "@/emotionCache";
 
-export const myCache = createEmotionCache({ key: "mantine" });
+// export const myCache = createEmotionCache({ key: "mantine", prepend: false });
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -19,9 +20,9 @@ export default function App(props: AppProps) {
       </Head>
 
       <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        emotionCache={myCache}
+        // withGlobalStyles
+        // withNormalizeCSS
+        emotionCache={emotionCache()}
         // theme={{
         //   /** Put your mantine theme override here */
         //   colorScheme: "light",
